@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { Unauthenticated } = require("../errors");
 const { verifyToken } = require("../utils/jwt");
-const { attachCookiesToRes } = require("../../Netflix-Clone-API/utils");
+const { attachCookiesToRes } = require("../utils/jwt");
 
 const authUser = async (req, res, next) => {
   const { accessToken, refreshToken } = req.signedCookies;
