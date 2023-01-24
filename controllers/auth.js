@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const { createToken, attachCookiesToRes } = require("../utils/jwt");
 const crypto = require("crypto");
 const Token = require("../models/Token");
-const sendEmail = require("../../Netflix-Clone-API/utils/sendEmail");
+const sendEmail = require("../utils/sendEmail");
 
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
