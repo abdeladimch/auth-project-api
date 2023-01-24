@@ -1,7 +1,6 @@
 require("dotenv").config();
 require("express-async-errors");
 
-const morgan = require("morgan");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
@@ -33,7 +32,6 @@ app.use(mongoSanitize());
 app.use(xss());
 
 app.use(express.json());
-app.use(morgan("tiny"));
 app.use(cookieParser(process.env.JWT_SECRET));
 
 app.get("/", (req, res) => {
