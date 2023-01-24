@@ -5,7 +5,7 @@ const sendEmail = (name, email, verificationToken, origin) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: email,
-    from: "netflixapiv1@gmail.com",
+    from: "authprojectv1@gmail.com",
     subject: "Confirm Email",
     html: `<h2>Welcome, ${name}</h2>
     <p>Thanks for registering on our website.</p>
