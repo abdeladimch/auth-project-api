@@ -22,12 +22,12 @@ const signup = async (req, res) => {
   req.body.verificationToken = verificationToken;
   const user = await User.create(req.body);
   await sendEmail(name, email, verificationToken, origin);
-  res.status(StatusCodes.CREATED).json({ msg: "Please verify your email!" });
+  res.status(StatusCodes.CREATED).json({ token: verificationToken, email });
 };
 
 const verifyEmail = async (req, res) => {
-  const { token } = req.query;
-  const user = await User.findOne({ verificationToken: token });
+  const { verificationToken: token, email } = req.body;
+  const user = await User.findOne({ email });
 
   if (user.verificationToken !== token) {
     throw new Unauthenticated("Email verification failed!");
