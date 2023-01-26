@@ -18,7 +18,7 @@ const attachCookiesToRes = (res, accessToken, refreshToken) => {
   const refreshTokenJWT = genJWT({ accessToken, refreshToken });
 
   const expiryDate = 1000 * 60 * 15;
-  const oneMonth = 1000 * 3600 * 24 * 30;
+  const oneMonth = 1000 * 3600 * 720;
 
   res.cookie("accessToken", accessTokenJWT, {
     secure: process.env.NODE_ENV === "production",
